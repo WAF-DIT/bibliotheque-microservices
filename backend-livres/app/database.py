@@ -1,7 +1,7 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import declarative_base, sessionmaker
 
-DATABASE_URL = "postgresql://admin:admin123@host.docker.internal:5432/dbdit"
+DATABASE_URL = "postgresql://admin:admin123@postgres:5432/dbdit"
 
 engine = create_engine(DATABASE_URL)
 
