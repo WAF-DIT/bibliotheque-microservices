@@ -1,0 +1,36 @@
+services:
+
+  postgres:
+    image: postgres:17
+    container_name: postgres_server
+    restart: always
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin123
+      POSTGRES_DB: dbdit
+    ports:
+      - "5432:5432"
+
+  backend-livres:
+    build: ./backend-livres
+    container_name: backend_livres
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgres
+
+  backend-utilisateurs:
+    build: ./backend-utilisateurs
+    container_name: backend_utilisateurs
+    ports:
+      - "8001:8000"
+    depends_on:
+      - postgres
+
+  backend-emprunts:
+    build: ./backend-emprunts
+    container_name: backend_emprunts
+    ports:
+      - "8002:8000"
+    depends_on:
+      - postgres
