@@ -1,0 +1,240 @@
+
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f6f9;
+    color: #333;
+}
+
+h1,
+h2,
+h3 {
+    margin: 0;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+    background-color: white;
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 25px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.logo {
+    width: 220px;
+    height: auto;
+}
+
+.subtitle {
+    color: #6b7280;
+    margin-top: 8px;
+}
+
+/* =========================
+   NAVIGATION
+========================= */
+
+.navigation {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+}
+
+.navigation a {
+    text-decoration: none;
+    padding: 12px 20px;
+    background-color: #2563eb;
+    color: white;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.navigation a:hover {
+    background-color: #1d4ed8;
+}
+
+/* =========================
+   SECTIONS
+========================= */
+
+section {
+    background-color: white;
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 25px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* =========================
+   DASHBOARD
+========================= */
+
+.dashboard {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 15px;
+}
+
+.card {
+    flex: 1;
+    min-width: 220px;
+    padding: 20px;
+    border-radius: 15px;
+    color: white;
+    text-align: center;
+    background: linear-gradient(
+        135deg,
+        #2563eb,
+        #1d4ed8
+    );
+}
+
+.card h3 {
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 36px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* =========================
+   RECHERCHE
+========================= */
+
+input,
+select {
+    padding: 10px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+input {
+    width: 300px;
+}
+
+/* =========================
+   BOUTONS
+========================= */
+
+button {
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 18px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-right: 5px;
+}
+
+button:hover {
+    background-color: #1d4ed8;
+}
+
+/* =========================
+   TABLEAUX
+========================= */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th {
+    background-color: #2563eb;
+    color: white;
+    padding: 12px;
+    text-align: left;
+}
+
+td {
+    padding: 12px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+tr:nth-child(even) {
+    background-color: #f9fafb;
+}
+
+tr:hover {
+    background-color: #eef2ff;
+}
+
+/* =========================
+   STATUTS
+========================= */
+
+.status-ok {
+    color: green;
+    font-weight: bold;
+}
+
+.status-returned {
+    color: #2563eb;
+    font-weight: bold;
+}
+
+.status-late {
+    color: red;
+    font-weight: bold;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #6b7280;
+    margin-top: 30px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+
+    .header-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .dashboard {
+        flex-direction: column;
+    }
+
+    input {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .navigation {
+        flex-direction: column;
+    }
+}

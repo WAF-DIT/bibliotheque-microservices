@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bibliothèque Numérique DIT</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+
+    <header class="header">
+
+        <div class="header-content">
+
+            <img
+                src="dit-logo.jpg"
+                alt="Logo DIT"
+                class="logo"
+            >
+
+            <div>
+
+                <h1>📚 Bibliothèque Numérique DIT</h1>
+
+                <p class="subtitle">
+                    Gestion des Livres, Utilisateurs et Emprunts
+                </p>
+
+            </div>
+
+        </div>
+
+    </header>
+
+    <!-- DASHBOARD -->
+
+    <section>
+
+        <h2>📊 Tableau de Bord</h2>
+
+        <div class="dashboard">
+
+            <div class="card">
+                <h3>📚 Livres</h3>
+                <p id="totalLivres">0</p>
+            </div>
+
+            <div class="card">
+                <h3>👥 Utilisateurs</h3>
+                <p id="totalUtilisateurs">0</p>
+            </div>
+
+            <div class="card">
+                <h3>📖 Emprunts</h3>
+                <p id="totalEmprunts">0</p>
+            </div>
+
+            <div class="card">
+                <h3>🔴 Retards</h3>
+                <p id="totalRetards">0</p>
+            </div>
+            
+
+        </div>
+
+    </section>
+
+    <!-- ACTIONS -->
+
+    <section>
+
+        <h2>⚙️ Actions</h2>
+
+        <button onclick="actualiserDonnees()">
+            🔄 Actualiser les données
+        </button>
+
+    </section>
+
+    <!-- LIVRES -->
+
+    <section id="livres-section">
+
+        <h2>📚 Gestion des Livres</h2>
+
+        <button
+            id="btnLivres"
+            onclick="toggleLivres()"
+        >
+            Masquer les livres
+        </button>
+
+        <br><br>
+
+        <input
+            type="text"
+            id="searchValue"
+            placeholder="Rechercher un livre..."
+        >
+
+        <select id="searchType">
+
+            <option value="title">
+                Titre
+            </option>
+
+            <option value="author">
+                Auteur
+            </option>
+
+            <option value="isbn">
+                ISBN
+            </option>
+
+        </select>
+
+        <button onclick="rechercherLivre()">
+            🔍 Rechercher
+        </button>
+
+        <button onclick="effacerRecherche()">
+            ❌ Effacer
+        </button>
+
+        <div id="livres"></div>
+
+    </section>
+
+    <!-- UTILISATEURS -->    <h2>👥 Gestion des Utilisateurs</h2>
+
+        <button
+            id="btnUtilisateurs"
+            onclick="toggleUtilisateurs()"
+        >
+            Masquer les utilisateurs
+        </button>
+
+        <div id="utilisateurs"></div>
+
+    </section>
+
+    <!-- EMPRUNTS -->
+
+    <section id="emprunts-section">
+
+        <h2>📖 Gestion des Emprunts</h2>
+
+        <button
+            id="btnEmprunts"
+            onclick="toggleEmprunts()"
+        >
+            Masquer les emprunts
+        </button>
+
+        <div id="emprunts"></div>
+
+    </section>
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <h3>Bibliothèque Numérique DIT</h3>
+
+        <p>Projet DevOps 2026</p>
+
+        <p>Groupe 4</p>
+
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
