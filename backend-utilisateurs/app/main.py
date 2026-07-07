@@ -3,12 +3,23 @@ from sqlalchemy.orm import Session
 
 from app import crud, schemas
 from app.database import Base, engine, get_db
+from fastapi.middleware.cors import CORSMiddleware
 
 Base.metadata.create_all(bind=engine)
 
 app = FastAPI(
     title="Microservice Utilisateurs",
     version="1.0.0"
+)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "http://localhost:3000"
+    ],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 

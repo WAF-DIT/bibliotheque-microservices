@@ -74,3 +74,21 @@ def get_late_books(db: Session):
         )
         .all()
     )
+
+def delete_borrow(
+    db: Session,
+    borrow_id: int
+):
+
+    borrow = (
+        db.query(models.Borrow)
+        .filter(models.Borrow.id == borrow_id)
+        .first()
+    )
+
+    if borrow:
+
+        db.delete(borrow)
+        db.commit()
+
+    return borrow

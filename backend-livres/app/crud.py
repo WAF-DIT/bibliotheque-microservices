@@ -68,3 +68,30 @@ def update_book(
         db.refresh(book)
 
     return book
+
+def search_books(
+    db: Session,
+    title: str = None,
+    author: str = None,
+    isbn: str = None
+):
+
+    query = db.query(models.Book)
+
+    if title:
+        query = query.filter(
+            models.Book.title.ilike(f"%{title}%")
+        )
+
+    if author:
+        query = query.filter(
+            models.Book.author.ilike(f"%{author}%")
+        )
+
+    if isbn:
+        query = query.filter(
+            models.Book.isbn.ilike(f"%{isbn}%")
+        )
+
+    return query.all()
+

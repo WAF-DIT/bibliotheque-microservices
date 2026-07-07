@@ -3,6 +3,7 @@ from sqlalchemy.orm import Session
 
 from app import crud, schemas
 from app.database import Base, engine, get_db
+from fastapi.middleware.cors import CORSMiddleware
 
 Base.metadata.create_all(bind=engine)
 
@@ -11,6 +12,15 @@ app = FastAPI(
     version="1.0.0"
 )
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "http://localhost:3000"
+    ],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.get("/")
 def root():
@@ -72,3 +82,13 @@ def get_late_books(
     db: Session = Depends(get_db)
 ):
     return crud.get_late_books(db)
+
+@app.delete("/borrow/{borrow_id}")
+def delete_borrow(
+    borrow_id: int,
+    db: Session = Depends(get_db)
+):
+    return crud.delete_borrow(
+        db,
+        borrow_id
+    )
