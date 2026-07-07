@@ -5,36 +5,38 @@ pipeline {
 
         stage('Checkout Source Code') {
             steps {
+                echo 'Récupération du code source'
                 checkout scm
             }
         }
 
-        stage('Build Docker Images') {
+        stage('Build Docker Image') {
             steps {
-                sh 'docker compose build'
+                echo 'Construction image Docker'
+                sh 'docker build -t backend-livres ./backend-livres'
             }
         }
 
-        stage('Start Containers') {
+        stage('Verify Docker') {
             steps {
-                sh 'docker compose up -d'
-            }
-        }
-
-        stage('Show Running Containers') {
-            steps {
+                echo 'Vérification Docker'
                 sh 'docker ps'
             }
         }
     }
 
     post {
+
         success {
-            echo 'Déploiement réussi'
+            echo ' Déploiement réussi'
         }
 
         failure {
-            echo 'Échec du pipeline'
+            echo ' Échec du pipeline'
+        }
+
+        always {
+            echo 'Pipeline terminé'
         }
     }
 }
